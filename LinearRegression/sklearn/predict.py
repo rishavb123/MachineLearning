@@ -1,4 +1,3 @@
-import pandas as pd
 import quandl
 import math
 import datetime
@@ -27,7 +26,7 @@ df = df[['Adj. Close', 'HL_PCT', 'PCT_change', "Adj. Volume"]]
 forecast_col = 'Adj. Close'
 # Calculates shift of how far into the future we are shifting all the data
 forecast_out = int(math.ceil(0.01*len(df)))
-print '\n\nlooking ' + str(forecast_out) + ' days into the future'
+print('\n\nlooking ' + str(forecast_out) + ' days into the future')
 
 # Deal with stuff that is not a number
 df.fillna(-99999, inplace=True)

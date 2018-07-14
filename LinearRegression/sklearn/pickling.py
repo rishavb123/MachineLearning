@@ -1,4 +1,3 @@
-import pandas as pd
 import quandl
 import math
 import datetime
@@ -28,7 +27,7 @@ df = df[['Adj. Close', 'HL_PCT', 'PCT_change', "Adj. Volume"]]
 forecast_col = 'Adj. Close'
 # Calculates shift of how far into the future we are shifting all the data
 forecast_out = int(math.ceil(0.01*len(df)))
-print '\n\nlooking ' + str(forecast_out) + ' days into the future'
+print('\n\nlooking ' + str(forecast_out) + ' days into the future')
 
 # Deal with stuff that is not a number
 df.fillna(-99999, inplace=True)
@@ -59,7 +58,7 @@ x_train, x_test, y_train, y_test = cross_validation.train_test_split(x, y, test_
 
 # Create classifier for linear regression
 # Documentation: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
-clf = LinearRegression(n_jobs=-1)
+# clf = LinearRegression()
 
 # n_jobs=1 --> default
 # n_jobs=10 --> will make it thread 10 times to make the training time faster
