@@ -84,7 +84,7 @@ last_unix = last_date.timestamp()
 # One day in seconds
 one_day = 86400
 # Shifting last_unix by a day and storing it into next_unix
-next_unix = last_unix + one_day + forecast_out * one_day
+next_unix = last_unix + one_day
 
 # Getting the Dates for the ys
 for i in forecast_set:
