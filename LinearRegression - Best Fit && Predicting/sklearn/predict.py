@@ -6,7 +6,6 @@ from matplotlib import style
 import numpy as np
 from sklearn import preprocessing, cross_validation, svm
 from sklearn.linear_model import LinearRegression
-import pickle
 
 style.use('ggplot')
 
@@ -58,26 +57,18 @@ x_train, x_test, y_train, y_test = cross_validation.train_test_split(x, y, test_
 
 # Create classifier for linear regression
 # Documentation: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
-clf = LinearRegression()
+clf = LinearRegression(n_jobs=-1)
 
 # n_jobs=1 --> default
 # n_jobs=10 --> will make it thread 10 times to make the training time faster
 # n_jobs=-1 --> will do the maximum amount of threads to optimize training time
-# clf = LinearRegression(n_jobs=-1)
+# clf = LinearRegression - Best Fit && Predicting(n_jobs=-1)
 
 
 # Create classifier for support vector linear algorithm
 # clf = svm.SVR()
 # Train the new Data into the Classifier; fit --> train
-
 clf.fit(x_train, y_train)
-with open('linearregression.pickle', 'wb') as f:
-    pickle.dump(clf, f)
-
-# pickle_in = open('linearregression.pickle', 'r')
-# clf = pickle.load(pickle_in)
-
-
 # Test some data and returns the accuracy; score --> test
 accuracy = clf.score(x_test, y_test)
 
