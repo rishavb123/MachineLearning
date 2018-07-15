@@ -5,7 +5,7 @@ import pandas as pd
 # Use comments from Linear Regression
 
 # Read in data
-df = pd.read_csv('breast-cancer-wisconsin.data.csv')
+df = pd.read_csv('../data/breast-cancer-wisconsin.data.csv')
 
 df.replace('?', -99999, inplace=True)
 # df.dropna(inpace=True)
@@ -16,7 +16,7 @@ y = np.array(df['class'])
 
 x_train, x_test, y_train, y_test = cross_validation.train_test_split(x, y, test_size=0.2)
 
-clf = neighbors.KNeighborsClassifier()
+clf = neighbors.KNeighborsClassifier(n_jobs=-1)
 
 clf.fit(x_train, y_train)
 
