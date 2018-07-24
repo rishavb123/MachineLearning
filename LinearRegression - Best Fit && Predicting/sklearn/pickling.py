@@ -4,8 +4,8 @@ import datetime
 import matplotlib.pyplot as plt
 from matplotlib import style
 import numpy as np
-from sklearn import preprocessing, cross_validation, svm
-from sklearn.linear_model import LinearRegression
+from sklearn import preprocessing, cross_validation
+# from sklearn.linear_model import LinearRegression
 import pickle
 
 style.use('ggplot')
@@ -74,7 +74,7 @@ x_train, x_test, y_train, y_test = cross_validation.train_test_split(x, y, test_
 # with open('linearregression.pickle', 'wb') as f:
 #     pickle.dump(clf, f)
 
-pickle_in = open('linearregression.pickle', 'r')
+pickle_in = open('linearregression.pickle', 'rb')
 clf = pickle.load(pickle_in)
 
 
