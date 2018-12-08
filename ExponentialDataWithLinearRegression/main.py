@@ -55,7 +55,6 @@ def sort(data):
 def convert(data):
     return [d[0] for d in data], [d[1] for d in data]
 
-# TODO fix chunk function: losing one data point at the beginning of each chunk arr
 def chunk(data, n):
     arr = []
     ii = 0
@@ -119,14 +118,19 @@ def getData(f, size, chunks, variance=-1):
 
 style.use('fivethirtyeight')
 
+f = lambda x: (x+1)**2
+size = 100
+chunks = 5
+variance = 0.1
 
-data = getData(lambda x: (x+1)**2, 100,5, 0.1)
+data = getData(f, size,chunks, variance)
 
 mdata = generateSlopes(data)
 mdash = averageSlope(mdata)
 bdash = interceptEstimate(mdata)
 C = interceptEstimate(data[0])
 f = lambda x : mdash/2.0*x**2+bdash*x+C
+# +str(averageSlope(generateSlopes(chunk(mdata, 2)))/3.0)+"x^3 + "
 f_str = "f(x) = "+str(mdash/2.0)+"x^2 + "+str(bdash)+"x + "+str(C)
 print(f_str)
 
