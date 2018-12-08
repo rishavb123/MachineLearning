@@ -61,7 +61,7 @@ b = best_fit_intercept(xs, ys, m)
 regression_line = np.array([m*x + b for x in xs])
 
 r_squared = coefficient_of_determination(ys, regression_line)
-print r_squared
+print(r_squared)
 
 plt.scatter(xs, ys)
 plt.plot(xs, regression_line)
